@@ -23,37 +23,22 @@ def guardar(datos):
         
         
     
-<<<<<<< HEAD
-def agregar_servicio():
-    id_servicio= input ("ingrese identificador")
-=======
 def agregar_servicio(datos):
 
->>>>>>> feature/editar_servicio
     servicio= input ("ingrese nombre del el servicio")
     definicion= input ("ingrese una descripcion del producto")
     precio= float (input("ingrese el costo del servicio"))
     
-<<<<<<< HEAD
-    nuevo_servicio={
-        "id_servicio",id_servicio,
-        "servicio",servicio,
-        "definicion",definicion,
-        "precio",precio
-=======
     nuevo_servicio={  
         "id_servicio": len(datos) + 1,
         "servicio":servicio,
         "definicion":definicion,
         "precio":precio
->>>>>>> feature/editar_servicio
     }
     datos.apened(nuevo_servicio)
     guardar(datos) 
     print ("agregacion de srvicio completada")
     
-<<<<<<< HEAD
-=======
 def editar_servicio(datos, campo):
     id_buscar = int(input("Ingrese el ID del elemento a editar: "))
 
@@ -67,19 +52,28 @@ def editar_servicio(datos, campo):
 
     print("Elemento no encontrado.\n")
 
+def eliminar_servicio(datos):
+    titulo = input("Ingrese el título a eliminar: ")
+
+    for elemento in datos:
+        if elemento["nombre"].lower() == titulo.lower():
+            datos.remove(elemento)
+            guardar(datos)
+            print("Elemento eliminado correctamente.\n")
+            return
+
+    print("Elemento no encontrado.\n")
 
 
->>>>>>> feature/editar_servicio
     
 menu()
 separador()
 while True:
     opc=int (input("ingrese su opcion deseada"))
     if opc==1:
-<<<<<<< HEAD
-        agregar_servicio()
-=======
         agregar_servicio()
     elif opc==2:
         editar_servicio()
->>>>>>> feature/editar_servicio
+    elif opc==3 :
+        eliminar_servicio()
+    
